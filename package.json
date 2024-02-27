@@ -10,17 +10,18 @@
   },
   "dependencies": {
     "vue": "^3.4.19",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vuetify": "^3.5.6"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
-    "vite": "^5.1.4",
-    "postcss": "^8.4.35",
-    "prettier": "^3.2.5",
     "autoprefixer": "^10.4.17",
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
+    "postcss": "^8.4.35",
+    "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.11",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "vite": "^5.1.4"
   }
 }
