@@ -44,7 +44,7 @@ const navLinks = [
       :class="[
         isOpen
           ? 'w-full border-ash-shade border-r h-[100vh] pt-[25%]'
-          : 'md:w-[50%]w pointer-events-none md:pointer-events-auto',
+          : 'md:w-[50%] w pointer-events-none md:pointer-events-auto',
         'absolute left-0 top-0 flex  flex-col md:border-0 transition-all duration-500 ease-in-out z-10 h-full md:h-auto md:flex-row md:justify-between md:relative md:pt-0  bg-white',
       ]"
     >
