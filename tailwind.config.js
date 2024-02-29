@@ -9,7 +9,7 @@ export default {
         "christmas-green": "#3AA03E",
       },
       fontFamily: {
-        poppins: ["Poppins", "sans"],
+        poppins: ["Poppins", "sans-serif"],
       },
     },
   },

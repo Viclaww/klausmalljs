@@ -2,9 +2,9 @@
 import FilterComp from "./FilterComp.vue";
 </script>
 <template>
-  <div class="w-[25%] relative">
+  <div class="w-[25%] gap-2 hidden md:flex flex-col relative">
     <input
-      class="border-2 pl-3 border-black h-11 w-full rounded-xl"
+      class="border-solid border-2 border-black pl-3 h-11 w-full rounded-lg"
       type="text"
     />
     <button

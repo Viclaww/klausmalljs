@@ -1,19 +1,21 @@
 <script setup>
-import { ref } from 'vue'
-import { RouterLink as Link } from 'vue-router'
+import { ref } from "vue";
+import { RouterLink as Link } from "vue-router";
 
-const isOpen = ref(false)
-console.log(isOpen.value)
+const isOpen = ref(false);
+console.log(isOpen.value);
 const navLinks = [
-  { name: 'Hamper Collection', path: '/hamper-collections' },
-  { name: 'Grocery Shopping', path: '/groceries' },
-  { name: 'Contact Us', path: '/contact-us' },
-  { name: 'About Us', path: '/about' }
-]
+  { name: "Hamper Collection", path: "/hamper-collections" },
+  { name: "Grocery Shopping", path: "/groceries" },
+  { name: "Contact Us", path: "/contact-us" },
+  { name: "About Us", path: "/about" },
+];
 </script>
 
 <template>
-  <div class="flex mt-5 items-center px-4 md:px-10 justify-between md:justify-evenly">
+  <div
+    class="flex mt-5 items-center px-4 w-full md:px-10 justify-between md:justify-evenly"
+  >
     <div class="flex items-center">
       <img
         v-if="!isOpen"
@@ -23,7 +25,10 @@ const navLinks = [
         alt=""
       />
       <Link to="">
-        <img class="h-10 relative z-30 md:z-0 cursor-pointer" src="../assets/KlausMall.svg" />
+        <img
+          class="h-10 relative z-30 md:z-0 cursor-pointer"
+          src="../assets/KlausMall.svg"
+        />
       </Link>
     </div>
 
@@ -38,18 +43,18 @@ const navLinks = [
     <div
       :class="[
         isOpen
-          ? 'w-full border-r h-[100vh] pt-[25%]'
-          : 'w-0 h-0 md:w-[50%]  pointer-events-none md:pointer-events-auto',
-        'absolute left-0 top-0  border-ash-shade flex flex-col md:border-0 transition-all duration-400 z-10 md:flex-row md:justify-between md:relative md:pt-0 md:h-auto bg-white'
+          ? 'w-full border-ash-shade border-r h-[100vh] pt-[25%]'
+          : 'md:w-[50%]w pointer-events-none md:pointer-events-auto',
+        'absolute left-0 top-0 flex  flex-col md:border-0 transition-all duration-500 ease-in-out z-10 h-full md:h-auto md:flex-row md:justify-between md:relative md:pt-0  bg-white',
       ]"
     >
       <Link
         v-for="link in navLinks"
         :class="[
           isOpen
-            ? 'translate-y-0 font-semibold opacity-100 pl-5 py-6'
-            : 'translate-y-3 md:translate-y-1 w-full md:w-auto text-nowrap opacity-0 md:opacity-100',
-          'font-medium transition-all duration-100 hover:text-red-primary md:py-0  text-lg border-b md:border-0 md:text-lg border-ash-shade/40'
+            ? 'translate-y-0 font-semibold opacity-100 pl-5 py-6 border-b border-ash-shade/40'
+            : 'translate-y-3 md:translate-y-0 w-full md:w-auto text-nowrap opacity-0 md:opacity-100',
+          'font-medium transition-all duration-100 hover:text-red-primary md:py-0  text-lg md:border-0 md:text-lg ',
         ]"
         class=""
         :key="link.name"
@@ -64,7 +69,11 @@ const navLinks = [
         <img src="../assets/Profile_Icon_UIA.png" alt="person" />
       </div>
 
-      <img class="w-12 h-12 cursor-pointer" src="../assets/Cart.png" alt="person" />
+      <img
+        class="w-12 h-12 cursor-pointer"
+        src="../assets/Cart.png"
+        alt="person"
+      />
     </div>
   </div>
 </template>
