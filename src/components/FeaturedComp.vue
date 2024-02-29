@@ -47,7 +47,7 @@ const featured = [
           <p>0 Reviews</p>
           <p class="first-letter:dpub">N{{ price }}</p>
         </div>
-        <button class="bg-red-primary text-white py-3 rounded-lg">
+        <button class="bg-red-primary text-white py-3 rounded-lg" v-ripple>
           Add To Cart
         </button>
       </div>

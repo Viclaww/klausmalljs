@@ -2,7 +2,7 @@
 import FeaturedComp from "../components/FeaturedComp.vue";
 import HeroComp from "../components/HeroComp.vue";
 import PatnerLogos from "../components/PatnerLogos.vue";
-import CunstomerReviews from "../components/CunstomerReviews.vue";
+import CustomerReviews from "../components/CustomerReviews.vue";
 </script>
 
 <template>
@@ -10,6 +10,6 @@ import CunstomerReviews from "../components/CunstomerReviews.vue";
     <HeroComp />
     <PatnerLogos />
     <FeaturedComp />
-    <CunstomerReviews />
+    <CustomerReviews />
   </main>
 </template>
