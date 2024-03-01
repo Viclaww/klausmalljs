@@ -3,6 +3,7 @@ import hamper1 from "../assets/Hamper1.png";
 import hamper2 from "../assets/hamper2.png";
 import hamper3 from "../assets/hamper3.png";
 import hamper4 from "../assets/hamper4.png";
+
 const featured = [
   {
     name: "Tropical Fruit Mix Hamper",
@@ -28,18 +29,22 @@ const featured = [
 </script>
 
 <template>
-  <div class="w-full flex flex-col gap-10 mb-5 items-center p-5">
+  <div
+    class="w-full flex self-center justify-self-center flex-col gap-10 mb-5 items-center p-5"
+  >
     <h4
       class="text-3xl font-medium before:absolute relative before:h-1 w-auto before:rounded-sm before:bottom-0 before:w-[60%] before:bg-red-primary before:content-['']"
     >
       Featured
     </h4>
 
-    <div class="flex gap-5 w-full justify-evenly mx-6">
+    <div
+      class="flex gap-5 w-full flex-col md:flex-row flex-wrap px-5 justify-evenly md:justify-center items-center mx-6"
+    >
       <div
         v-for="({ name, price, imgSrc }, index) in featured"
         :key="index"
-        class="w-[21%] border-red-primary border-[1px] justify-evenly p-4 rounded-lg cursor-pointer flex flex-col gap-2"
+        class="md:w-[21%] w-full border-red-primary border-[1px] justify-evenly p-4 rounded-lg cursor-pointer flex flex-col gap-2"
       >
         <img :src="imgSrc" :alt="`hamper_${index}`" />
         <h3 class="font-medium text-xl">{{ name }}</h3>
