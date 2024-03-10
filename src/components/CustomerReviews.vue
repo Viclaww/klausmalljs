@@ -1,8 +1,11 @@
 <template>
   <div class="flex flex-col w-full items-center p-10 gap-5">
     <h3 class="text-3xl font-medium">Customer Reviews</h3>
-    <div class="w-[250vw] overflow-hidden">
-      <div class="flex gap-3 relative justify-evenly">
+    <div class="w-full md:flex overflow-hidden">
+      <div
+        ref="innerRef"
+        class="flex justify-around md:w-full md:justify-center w-[250vw] gap-8"
+      >
         <div
           v-for="(review, index) in reviews"
           :key="index"
@@ -36,6 +39,10 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from "vue";
+
+const innerRef = ref(null);
+
 const reviews = [
   {
     name: "Ace",
@@ -66,6 +73,37 @@ const getRatingType = (rating) => {
         ? "Great!"
         : "Unknown Rating"; // Default case
 };
+
+let intervalId;
+
+onMounted(() => {
+  if (window.innerWidth <= 768) {
+    const containerWidth = innerRef.value.clientWidth;
+    const totalCards = reviews.length;
+    const cardWidth = containerWidth / totalCards;
+    let currentIndex = 0;
+
+    intervalId = setInterval(() => {
+      currentIndex++;
+      if (currentIndex >= totalCards) {
+        innerRef.value.style.transition = `transform 0.5s ease-in-out`;
+        innerRef.value.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        setTimeout(() => {
+          currentIndex = 0; // Reset index to 0
+          innerRef.value.style.transition = "none";
+          innerRef.value.style.transform = `translateX(0)`;
+        }, 500);
+      } else {
+        innerRef.value.style.transition = "transform 0.5s ease-in-out";
+        innerRef.value.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+      }
+    }, 2000);
+  }
+});
+
+onBeforeUnmount(() => {
+  clearInterval(intervalId);
+});
 </script>
 
 <style scoped>

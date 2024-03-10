@@ -21,7 +21,7 @@ const featured = [
     imgSrc: hamper3,
   },
   {
-    name: "Hamper of Hampers(mixed)",
+    name: "Hamper of Hampers",
     price: 100000,
     imgSrc: hamper4,
   },
