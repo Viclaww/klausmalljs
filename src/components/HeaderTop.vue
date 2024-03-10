@@ -20,7 +20,7 @@ const navLinks = [
       <img
         v-if="!isOpen"
         @click="isOpen = !isOpen"
-        class="w-8 h-8 mt-5 mr-3 md:hidden"
+        class="w-8 h-8 mt-5 mr-3 duration-150 transition md:hidden"
         src="../assets/menu-svgrepo-com.svg"
         alt=""
       />
@@ -44,7 +44,7 @@ const navLinks = [
       :class="[
         isOpen
           ? 'w-full border-ash-shade border-r h-[100vh] pt-[25%]'
-          : 'md:w-[50%] w pointer-events-none md:pointer-events-auto',
+          : ' md:w-[50%] -translate-x-full md:translate-x-0 pointer-events-none md:pointer-events-auto',
         'absolute left-0 top-0 flex  flex-col md:border-0 transition-all duration-500 ease-in-out z-10 h-full md:h-auto md:flex-row md:justify-between md:relative md:pt-0  bg-white',
       ]"
     >
