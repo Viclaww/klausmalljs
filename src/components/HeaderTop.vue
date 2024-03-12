@@ -45,7 +45,7 @@ const navLinks = [
         isOpen
           ? 'w-full border-ash-shade border-r h-[100vh] pt-[25%]'
           : ' md:w-[50%] -translate-x-full md:translate-x-0 pointer-events-none md:pointer-events-auto',
-        'absolute left-0 top-0 flex  flex-col md:border-0 transition-all duration-500 ease-in-out z-10 h-full md:h-auto md:flex-row md:justify-between md:relative md:pt-0  bg-white',
+        'absolute left-0 top-0 flex  flex-col md:border-0 transition-all duration-500 ease-in-out z-10 h-full md:h-auto md:flex-row md:justify-between md:relative md:pt-0 bg-white',
       ]"
     >
       <Link
@@ -54,7 +54,7 @@ const navLinks = [
           isOpen
             ? 'translate-y-0 font-semibold opacity-100 pl-5 py-6 border-b border-ash-shade/40'
             : 'translate-y-3 md:translate-y-0 w-full md:w-auto text-nowrap opacity-0 md:opacity-100',
-          'font-medium transition-all duration-100 hover:text-red-primary md:py-0  text-lg md:border-0 md:text-lg ',
+          'font-medium transition-all duration-100 cursor-none hover:text-red-primary md:py-0  text-lg md:border-0 md:text-lg ',
         ]"
         class=""
         :key="link.name"
