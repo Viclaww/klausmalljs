@@ -3,6 +3,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,vue}"],
   theme: {
     extend: {
+      backgroundImage: {
+        "about-image":
+          'url("./src/assets/afro-american-girl-holding-christmas-decorations-box 1.png")',
+      },
       colors: {
         "red-primary": "#FF0606",
         "ash-shade": "#212326",
