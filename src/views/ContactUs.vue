@@ -1,6 +1,4 @@
-<script setup>
-import
-</script>
+<script setup></script>
 <template>
   <div
     class="flex bg-contact-image text-white bg-cover bg-center justify-center items-center h-[60vh] w-full"
