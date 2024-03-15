@@ -3,7 +3,7 @@ import CustomerReviews from "../components/CustomerReviews.vue";
 </script>
 <template>
   <div
-    class="about flex items-center p-[5%] w-[100vw] bg-center bg-cover text-white h-[60vh] bg-about-image"
+    class="about flex items-center p-[5%] bg-center bg-cover text-white h-[60vh] bg-about-image"
   >
     <h1 class="text-7xl font-bold">About Us</h1>
   </div>

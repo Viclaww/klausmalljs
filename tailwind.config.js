@@ -6,6 +6,8 @@ export default {
       backgroundImage: {
         "about-image":
           'url("./src/assets/afro-american-girl-holding-christmas-decorations-box 1.png")',
+        "contact-image":
+          'url("./src/assets/front-view-beautiful-christmas-gifts 1.png")',
       },
       colors: {
         "red-primary": "#FF0606",
