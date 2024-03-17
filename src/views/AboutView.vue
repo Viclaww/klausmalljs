@@ -5,7 +5,7 @@ import CustomerReviews from "../components/CustomerReviews.vue";
   <div
     class="about flex items-center p-[5%] bg-center bg-cover text-white h-[60vh] bg-about-image"
   >
-    <h1 class="text-7xl font-bold">About Us</h1>
+    <h3 class="text-7xl font-bold">About Us</h3>
   </div>
   <div class="p-10">
     <h4 class="text-2xl font-bold py-3 text-red-primary">

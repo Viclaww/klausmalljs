@@ -9,7 +9,6 @@ onMounted(() => {
   const follow = document.querySelector(".follower");
   const cur = document.querySelector(".cursor");
   const links = document.querySelectorAll("p");
-  const img = document.querySelectorAll("img");
   const headers = document.querySelectorAll("h3");
   const inputs = document.querySelectorAll("input[type=text]");
   ctx = gsap.context(() => {
@@ -24,10 +23,7 @@ onMounted(() => {
       element.addEventListener("mouseenter", handleMouseEnterHeaders);
       element.addEventListener("mouseleave", handleMouseLeave);
     });
-    img.forEach((element) => {
-      element.addEventListener("mouseenter", handleMouseEnterHeaders);
-      element.addEventListener("mouseleave", handleMouseLeave);
-    });
+
     inputs.forEach((input) => {
       input.addEventListener("mouseenter", handleMouseEnterInput);
       input.addEventListener("mouseleave", handleMouseLeave);
