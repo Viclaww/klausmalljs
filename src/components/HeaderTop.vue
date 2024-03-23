@@ -1,6 +1,7 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 import { RouterLink as Link } from "vue-router";
+import gsap from "gsap";
 
 const isOpen = ref(false);
 console.log(isOpen.value);
@@ -10,11 +11,31 @@ const navLinks = [
   { name: "Contact Us", path: "/contact-us" },
   { name: "About Us", path: "/about" },
 ];
+
+let ctx;
+onMounted(() => {
+  ctx = gsap.context(() => {
+    let tl = gsap.timeline();
+    tl.from(".header", {
+      y: -50,
+      duration: 0.5,
+      ease: "power1.out",
+    }).from(".header-img", {
+      x: -50,
+      opacity: 0,
+      duration: 0.5,
+      ease: "power1.out",
+    });
+  });
+});
+onUnmounted(() => {
+  ctx.revert;
+});
 </script>
 
 <template>
   <div
-    class="flex mt-5 items-center px-4 w-full md:px-10 justify-between md:justify-evenly"
+    class="flex header mt-5 items-center px-4 w-full md:px-10 justify-between md:justify-evenly"
   >
     <div class="flex items-center">
       <img
@@ -26,7 +47,7 @@ const navLinks = [
       />
       <Link to="">
         <img
-          class="h-10 relative z-30 md:z-0 cursor-pointer"
+          class="h-10 header-img relative z-30 md:z-0 cursor-pointer"
           src="../assets/KlausMall.svg"
         />
       </Link>

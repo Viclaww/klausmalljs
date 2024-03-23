@@ -3,7 +3,31 @@ import hamper1 from "../assets/Hamper1.png";
 import hamper2 from "../assets/hamper2.png";
 import hamper3 from "../assets/hamper3.png";
 import hamper4 from "../assets/hamper4.png";
+import { onMounted, onUnmounted } from "vue";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/src/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
+let ctx;
+onMounted(() => {
+  ctx = gsap.context(() => {
+    let tl = gsap.timeline();
+    tl.from(".featured", {
+      y: 40,
+      duration: 1,
+      opacity: 0,
+      ease: "power1.out",
+      ScrollTrigger:
+        (".featured",
+        {
+          scrub: 1,
+        }),
+    }).from(ScrollTrigger);
+  });
+});
+onUnmounted(() => {
+  ctx.revert;
+});
 const featured = [
   {
     name: "Tropical Fruit Mix Hamper",
@@ -44,7 +68,7 @@ const featured = [
       <div
         v-for="({ name, price, imgSrc }, index) in featured"
         :key="index"
-        class="md:w-[21%] w-full border-red-primary border-[1px] justify-evenly p-4 rounded-lg cursor-pointer flex flex-col gap-2"
+        class="md:w-[21%] w-full featured border-red-primary border-[1px] justify-evenly p-4 rounded-lg cursor-pointer flex flex-col gap-2"
       >
         <img :src="imgSrc" :alt="`hamper_${index}`" />
         <h3 class="font-medium text-xl">{{ name }}</h3>
