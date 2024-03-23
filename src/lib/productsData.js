@@ -1,37 +1,37 @@
 export const products = [
   {
-    productName: 'Beverage Hamper',
+    productName: "Beverage Hamper",
     productPrice: 10000,
-    productImg: '',
+    productImg: "",
     reviews: [],
-    productQuant: 500
+    productQuant: 500,
   },
   {
-    productName: 'Beverage Hamper',
+    productName: "Beverage Hamper",
     productPrice: 10000,
-    productImg: '',
+    productImg: "",
     reviews: [],
-    productQuant: 500
+    productQuant: 500,
   },
   {
-    productName: 'Beverage Hamper',
+    productName: "Beverage Hamper",
     productPrice: 10000,
-    productImg: '',
+    productImg: "",
     reviews: [],
-    productQuant: 500
+    productQuant: 500,
   },
   {
-    productName: 'Beverage Hamper',
+    productName: "Beverage Hamper",
     productPrice: 10000,
-    productImg: '',
+    productImg: "",
     reviews: [],
-    productQuant: 500
+    productQuant: 500,
   },
   {
-    productName: 'Beverage Hamper',
+    productName: "Beverage Hamper",
     productPrice: 10000,
-    productImg: '',
+    productImg: "",
     reviews: [],
-    productQuant: 500
-  }
-]
+    productQuant: 500,
+  },
+];
