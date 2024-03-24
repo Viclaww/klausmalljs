@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import FeaturedComp from "../components/FeaturedComp.vue";
 import HeroComp from "../components/HeroComp.vue";
 import PatnerLogos from "../components/PatnerLogos.vue";
