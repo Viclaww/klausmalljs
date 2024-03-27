@@ -3,7 +3,7 @@ import { nextTick, ref } from "vue";
 import { RouterLink as Link } from "vue-router";
 import gsap from "gsap";
 
-const isOpen = ref(true);
+const isOpen = ref(false);
 
 const navLinks = [
   { name: "Hamper Collection", path: "/hamper-collections" },
@@ -85,7 +85,7 @@ const navLinks = [
           isOpen
             ? 'translate-y-0 font-semibold opacity-100 pl-5 py-6 border-b border-ash-shade/40'
             : 'translate-y-3 md:translate-y-0 w-full md:w-auto text-nowrap opacity-0 md:opacity-100',
-          'font-medium transition-all bg-white z-20  duration-100 cursor-none hover:text-red-primary md:py-7  text-lg md:border-0 md:text-lg ',
+          'font-medium transition-all bg-white z-20  duration-100 hover:text-red-primary md:py-7  text-lg md:border-0 md:text-lg ',
         ]"
         class=""
         :key="link.name"
