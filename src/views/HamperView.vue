@@ -3,6 +3,7 @@ import { ref } from "vue";
 import { products } from "../lib/productsData";
 const loading = ref(true);
 const data = ref(null);
+const ismodalOpen = ref(false);
 setTimeout(() => {
   data.value = products;
   loading.value = false;
@@ -13,7 +14,7 @@ import FilterModal from "../components/FilterModal.vue";
 <template>
   <div class="flex gap-10 w-full px-3 md:px-14">
     <hero-search />
-    <filter-modal />
+    <filter-modal :ismodalOpen="ismodalOpen" />
     <div class="w-full bg-amber-400 p-2 md:5">
       <div v-if="loading">
         <p>Loading...</p>
