@@ -1,10 +1,10 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from "vue";
+import { nextTick, ref } from "vue";
 import { RouterLink as Link } from "vue-router";
 import gsap from "gsap";
 
-const isOpen = ref(false);
-console.log(isOpen.value);
+const isOpen = ref(true);
+
 const navLinks = [
   { name: "Hamper Collection", path: "/hamper-collections" },
   { name: "Grocery Shopping", path: "/groceries" },
@@ -12,25 +12,25 @@ const navLinks = [
   { name: "About Us", path: "/about" },
 ];
 
-let ctx;
-onMounted(() => {
-  ctx = gsap.context(() => {
-    let tl = gsap.timeline();
-    tl.from(".header", {
-      y: -50,
-      duration: 0.5,
-      ease: "power1.out",
-    }).from(".header-img", {
-      x: -50,
-      opacity: 0,
-      duration: 0.5,
-      ease: "power1.out",
-    });
-  });
-});
-onUnmounted(() => {
-  ctx.revert;
-});
+// let ctx;
+// onMounted(() => {
+//   ctx = gsap.context(() => {
+//     let tl = gsap.timeline();
+//     tl.from(".header", {
+//       y: -50,
+//       duration: 0.5,
+//       ease: "power1.out",
+//     }).from(".header-img", {
+//       x: -50,
+//       opacity: 0,
+//       duration: 0.5,
+//       ease: "power1.out",
+//     });
+//   });
+// });
+// onUnmounted(() => {
+//   ctx.revert;
+// });
 </script>
 
 <template>
@@ -40,14 +40,17 @@ onUnmounted(() => {
     <div class="flex items-center">
       <img
         v-if="!isOpen"
-        @click="isOpen = !isOpen"
-        class="w-8 h-8 mt-5 mr-3 duration-150 transition md:hidden"
+        @click="
+          isOpen = !isOpen;
+          console.log(isOpen);
+        "
+        class="w-8 h-8 mt-5 mr-3 duration-150 relative z-[100] transition md:hidden"
         src="../assets/menu-svgrepo-com.svg"
         alt=""
       />
-      <Link to="">
+      <Link to="/">
         <img
-          class="h-10 header-img relative z-30 md:z-0 cursor-pointer"
+          class="h-10 header-img relative z-30 cursor-pointer"
           src="../assets/KlausMall.svg"
         />
       </Link>
@@ -55,10 +58,17 @@ onUnmounted(() => {
 
     <span
       v-if="isOpen"
-      @click="isOpen = !isOpen"
-      class="text-xl absolute z-40 cursor-pointer font-extrabold right-5 top-10S"
+      @click="toggleNav"
+      class="text-xl absolute z-50 cursor-pointer font-extrabold right-5 top-10"
     >
-      <img src="../assets/cancel.png" alt="" />
+      <img
+        @click="
+          isOpen = !isOpen;
+          console.log(isOpen);
+        "
+        src="../assets/cancel.png"
+        alt=""
+      />
     </span>
     <!-- md:flex w-[50%] hidden justify-between -->
     <div
@@ -66,7 +76,7 @@ onUnmounted(() => {
         isOpen
           ? 'w-full border-ash-shade border-r h-[100vh] pt-[25%]'
           : ' md:w-[50%] -translate-x-full md:translate-x-0 pointer-events-none md:pointer-events-auto',
-        'absolute left-0 top-0 flex  flex-col md:border-0 transition-all duration-500 ease-in-out z-10  h-full md:h-auto md:flex-row md:justify-between md:relative md:pt-0 bg-white',
+        'absolute left-0 top-0 flex z-10 flex-col md:border-0 transition-all duration-500 ease-in-out  h-full  md:h-auto md:flex-row md:justify-between md:relative md:pt-0 bg-white',
       ]"
     >
       <Link
@@ -75,7 +85,7 @@ onUnmounted(() => {
           isOpen
             ? 'translate-y-0 font-semibold opacity-100 pl-5 py-6 border-b border-ash-shade/40'
             : 'translate-y-3 md:translate-y-0 w-full md:w-auto text-nowrap opacity-0 md:opacity-100',
-          'font-medium transition-all duration-100 cursor-none hover:text-red-primary md:py-7  text-lg md:border-0 md:text-lg ',
+          'font-medium transition-all bg-white z-20  duration-100 cursor-none hover:text-red-primary md:py-7  text-lg md:border-0 md:text-lg ',
         ]"
         class=""
         :key="link.name"
@@ -98,5 +108,3 @@ onUnmounted(() => {
     </div>
   </div>
 </template>
-
-<style scoped></style>
