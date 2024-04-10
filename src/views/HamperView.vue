@@ -14,12 +14,24 @@ import FilterModal from "../components/FilterModal.vue";
 <template>
   <div class="flex gap-10 w-full px-3 md:px-14">
     <hero-search />
+    <div
+      @click="ismodalOpen = !ismodalOpen"
+      :class="[
+        !ismodalOpen ? 'hidden' : 'block',
+        'w-full z-50 h-[100vh] bg-black/40 absolute top-0 right-0',
+      ]"
+    ></div>
     <filter-modal :ismodalOpen="ismodalOpen" />
     <div class="w-full bg-amber-400 p-2 md:5">
       <div v-if="loading">
         <p>Loading...</p>
       </div>
-      <div v-else>
+      <div class="flex flex-col" v-else>
+        <span
+          @click="ismodalOpen = !ismodalOpen"
+          class="md:hidden self-end w-fit font-semibold border p-2 rounded-md my-3 flex"
+          >Filter Results
+        </span>
         <div
           class="grid grid-cols-2 md:grid-cols-4 gap-4 flex-wrap justify-stretch"
         >
