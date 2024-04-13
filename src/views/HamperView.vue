@@ -1,15 +1,24 @@
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { products } from "../lib/productsData";
+import HeroSearch from "../components/HeroSearch.vue";
+import FilterModal from "../components/FilterModal.vue";
 const loading = ref(true);
 const data = ref(null);
 const ismodalOpen = ref(false);
+watch(ismodalOpen, (newValue) => {
+  if (newValue) {
+    document.body.style.position = "fixed";
+    document.body.style.top = `${window.scrollY}px`;
+  } else {
+    document.body.style.position = "";
+    document.body.style.top = ``;
+  }
+});
 setTimeout(() => {
   data.value = products;
   loading.value = false;
 }, 5000);
-import HeroSearch from "../components/HeroSearch.vue";
-import FilterModal from "../components/FilterModal.vue";
 </script>
 <template>
   <div class="flex gap-10 w-full px-3 md:px-14">
@@ -17,8 +26,8 @@ import FilterModal from "../components/FilterModal.vue";
     <div
       @click="ismodalOpen = !ismodalOpen"
       :class="[
-        !ismodalOpen ? 'hidden' : 'block',
-        'w-full z-50 h-[100vh] bg-black/40 absolute top-0 right-0',
+        !ismodalOpen ? 'hidden' : 'block absolute',
+        'w-full z-50 h-[100vh] bg-black/40 top-0 right-0',
       ]"
     ></div>
     <filter-modal :ismodalOpen="ismodalOpen" />
